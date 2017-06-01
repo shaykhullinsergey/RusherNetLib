@@ -1,5 +1,7 @@
-﻿namespace RusherNetLib.Core {
-    public interface IBuffer {
-        byte[] GetBytes();
-    }
+﻿namespace RusherNetLib.Core
+{
+  public interface IBuffer
+  {
+    byte[] GetBytes();
+  }
 }
