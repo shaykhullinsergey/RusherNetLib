@@ -2,11 +2,11 @@
 
 namespace RusherNetLib.Core
 {
-  public interface IPeer
-  {
-    Socket Socket { get; }
-    bool IsRunning { get; }
-  }
+	public interface IPeer
+	{
+		Socket Socket { get; }
+		bool IsRunning { get; }
+	}
 }
 
 
