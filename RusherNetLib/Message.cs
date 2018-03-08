@@ -27,12 +27,12 @@ namespace RusherNetLib
 		internal Message(byte[] data) : this()
 		{
 			Received = data.Length;
-			var xml = XElement.Parse(Encoding.UTF8.GetString(data)).Descendants("f");
-			messages = xml.ToDictionary(x => x.Attribute("n").Value, x => (object)x.Attribute("v").Value);
+			var xml = XElement.Parse(Encoding.UTF8.GetString(data)).Descendants("data");
+			messages = xml.ToDictionary(x => x.Attribute("key").Value, x => (object)x.Attribute("value").Value);
 		}
 		public byte[] GetBytes()
 		{
-			var xml = new XElement("msg", messages.Select(x => new XElement("f", new XAttribute("n", x.Key), new XAttribute("v", x.Value))));
+			var xml = new XElement("msg", messages.Select(x => new XElement("data", new XAttribute("key", x.Key), new XAttribute("value", x.Value))));
 			return Encoding.UTF8.GetBytes(xml.ToString());
 		}
 		public dynamic this[string name]
